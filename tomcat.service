@@ -1,0 +1,28 @@
+[Unit]
+Description=Tomcat 10 Web Container
+After=syslog.target network.target
+
+[Service]
+Type=forking
+User=tomcat
+Group=tomcat
+
+#WorkingDirectory=/var/tomcat/%i
+
+Environment="JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/"
+
+
+Environment="CATALINA_PID=/opt/tomcat/tomcat.pid"
+Environment="CATALINA_BASE=/opt/tomcat10
+Environment="CATALINA_HOME=/opt/tomcat10
+Environment=CATALINA_OPTS=
+Environment="JAVA_OPTS=-Dfile.encoding=UTF-8"
+
+ExecStart=/opt/tomcat10/bin/startup.sh
+ExecStop=/opt/tomcat/bin/shutdown.sh
+
+#RestartSec=10
+#Restart=always
+
+[Install]
+WantedBy=multi-user.target
