@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  namespace: cep-project1
+  name: test2
+  labels:
+    app: wp
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    server: 172.31.59.182
+    # Exported path of your NFS server don't forget to change the above line
+    path: "/nfsdata1"
